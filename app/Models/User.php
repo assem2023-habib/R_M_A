@@ -23,6 +23,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'city',
+        'user_name'
     ];
 
     /**
@@ -46,5 +50,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function parcels()
+    {
+        return $this->hasMany(Parcel::class);
+    }
+    public function statsitcUser()
+    {
+        return $this->hasMany(StatisticUser::class);
     }
 }
